@@ -1,0 +1,2366 @@
+ScreenManager
+  Login:
+  LoginAdmin:
+  LoginUser :
+  MainAdmin  :
+  MainUser :
+
+
+
+
+
+<Login>:
+  name : "Login"
+  MDCard:
+    size_hint: None, None
+    size: 300, 450
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    elevation: 10
+    padding: 65
+    spacing: 15
+    orientation: 'vertical'
+
+
+    MDIcon:
+      icon: 'account'
+      icon_color: 0, 0, 0, 0
+      halign: 'center'
+      font_size: 250
+    MDLabel:
+      text : "\n\nLogin For"
+      halign: 'center'
+    MDFillRoundFlatButton:
+      text: "Admin"
+      theme_text_color: "Custom"
+      on_press :
+        root.manager.current = "LoginAdmin"
+      line_color: 0, 0, 1, 1
+      pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    MDFillRoundFlatButton:
+      id : true
+      text: "User"
+      bool : "True"
+      theme_text_color: "Custom"
+      on_press :
+
+        root.manager.current = "LoginUser"
+
+      line_color: 0, 0, 1, 1
+      pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    MDLabel:
+      pos_hint: {"center_x": 0.5, "center_y": 0.5}
+      text : "WELCOME"
+      halign: 'center'
+
+
+
+<LoginAdmin>:
+  name : "LoginAdmin"
+
+  MDCard:
+    size_hint: None, None
+    size: 400, 500
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    elevation: 10
+    padding: 65
+    spacing: 15
+    orientation: 'vertical'
+    MDIcon:
+      icon: 'account'
+      icon_color: 0, 0, 0, 0
+      halign: 'center'
+      font_size: 200
+
+
+    MDTextFieldRound:
+      id: adname
+      icon_left: "account-check"
+      hint_text: "Username"
+      foreground_color: 0, 0, 0, 1
+      size_hint_x: None
+      width: 220
+      font_size: 20
+      pos_hint: {"center_x": 0.5}
+
+    MDTextFieldRound:
+      id: adpassword
+      icon_left: "key-variant"
+      hint_text: "Password"
+      foreground_color: 0, 0, 0, 1
+      size_hint_x: None
+      width: 220
+      font_size: 20
+      pos_hint: {"center_x": 0.5}
+      password : True
+    MDFillRoundFlatButton:
+      id : admn
+      bool : "True"
+      text : "Login"
+      pos_hint: {"center_x": 0.5}
+      md_bg_color : 1,0,0,0.7
+      on_press : root.manager.current = "LoginUser"
+
+
+    MDFillRoundFlatButton:
+      text : "Back"
+      pos_hint: {"center_x": 0.5}
+      md_bg_color : 0.6,1,0.6,0.7
+      on_press : root.manager.current="Login"
+<LoginUser>:
+  name : "LoginUser"
+  MDCard:
+    size_hint: None, None
+    size: 400, 500
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    elevation: 10
+    padding: 65
+    spacing: 15
+    orientation: 'vertical'
+    MDIcon:
+      icon: 'account'
+      icon_color: 0, 0, 0, 0
+      halign: 'center'
+      font_size: 200
+
+
+    MDTextFieldRound:
+      id: usname
+      icon_left: "account-check"
+      hint_text: "Username"
+      foreground_color: 0, 0, 0, 1
+      size_hint_x: None
+      width: 220
+      font_size: 20
+      pos_hint: {"center_x": 0.5}
+
+    MDTextFieldRound:
+      id: uspassword
+      icon_left: "key-variant"
+      hint_text: "Password"
+      foreground_color: 0, 0, 0, 1
+      size_hint_x: None
+      width: 220
+      font_size: 20
+      pos_hint: {"center_x": 0.5}
+      password : True
+    MDFillRoundFlatButton:
+      id :true
+      bool : "True"
+      text : "Login"
+      pos_hint: {"center_x": 0.5}
+      md_bg_color : 1,0,0,0.7
+      on_press : root.manager.current = "MainUser"
+
+
+
+    MDFillRoundFlatButton:
+      text : "Back"
+      pos_hint: {"center_x": 0.5}
+      md_bg_color : 0.6,1,0.6,0.7
+      on_press :
+        root.manager.current = "Login"
+        uspassword.text = ""
+        usname.text = ""
+
+
+<MainAdmin>:
+  name : "MainAdmin"
+
+  GridLayout:
+    rows : 2
+    GridLayout:
+      size_hint : 1,0.05
+      cols : 3
+
+      Button:
+        text : "Back"
+        background_color : 0,1,0,0.7
+        size_hint : 0.15,1
+        on_press : root.manager.current="LoginAdmin"
+
+      MDCard:
+        size_hint:
+        md_bg_color : [0/255,0/255,0/255,255/255]
+        Label :
+          text : "WELCOME"
+
+      Button :
+        text : "Refresh"
+        background_color : 1,0,0,0.7
+        size_hint : 0.15,1
+
+
+    GridLayout:
+      cols : 2
+      MDCard :
+        size_hint  : 0.4,1
+
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        size: 400, 500
+        md_bg_color : [100/255,170/255,150/255,255/255]
+        elevation: 10
+        padding: 65
+        spacing: 15
+        orientation: 'vertical'
+
+        MDIcon:
+          icon: 'account'
+          icon_color: 0, 0, 0, 0
+          halign: 'center'
+          font_size: 200
+        MDTextFieldRound:
+          id: firstname
+          icon_left: "account-check"
+          hint_text: "First Name"
+          foreground_color: 0, 0, 0, 1
+          size_hint_x: None
+          width: 220
+          font_size: 20
+          pos_hint: {"center_x": 0.5}
+        MDTextFieldRound:
+          id: lastname
+          icon_left: "account-check"
+          hint_text: "Last Name"
+          foreground_color: 0, 0, 0, 1
+          size_hint_x: None
+          width: 220
+          font_size: 20
+          pos_hint: {"center_x": 0.5}
+        MDTextFieldRound:
+          id: cin
+          icon_left: "account-check"
+          hint_text: "Cin Number"
+          input_filter : 'float'
+          foreground_color: 0, 0, 0, 1
+          size_hint_x: None
+          width: 220
+          font_size: 20
+          pos_hint: {"center_x": 0.5}
+        MDTextFieldRound:
+          id: username
+          icon_left: "account-check"
+          hint_text: "UserName"
+          foreground_color: 0, 0, 0, 1
+          size_hint_x: None
+          width: 220
+          font_size: 20
+          pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+          id : password
+          icon_left: "key-variant"
+          hint_text: "Password"
+          foreground_color: 0, 0, 0, 1
+          size_hint_x: None
+          width: 220
+          font_size: 20
+          pos_hint: {"center_x": 0.5}
+          password : True
+        MDFillRoundFlatButton:
+          id : adduser
+
+          text : "Add User"
+          pos_hint: {"center_x": 0.5}
+          md_bg_color : 0,0,1,0.7
+          on_press : app.add_user()
+        MDFillRoundFlatButton:
+          text : "Remove User"
+          pos_hint: {"center_x": 0.5}
+          md_bg_color : 0,0,1,0.7
+          on_press : app.delete_user()
+
+
+      GridLayout:
+        size_hint : 1,1
+        rows : 4
+        MDCard :
+          size_hint :1,0.1
+          md_bg_color : [150/255,170/255,100/255,255/255]
+          Label :
+            text : "List Of Users"
+
+
+
+        ScrollView :
+
+
+          size : self.size
+          do_scroll_y : True
+          GridLayout :
+            id : userr
+            cols : 2
+            spacing : 5
+            size_hint_y : None
+            height : self.minimum_height
+
+
+
+
+        MDCard :
+          size_hint : 1,0.1
+          md_bg_color : [150/255,170/255,100/255,255/255]
+          Label :
+            text : "List Of Products"
+        ScrollView :
+
+          size : self.size
+          do_scroll_y : True
+          GridLayout :
+            cols : 2
+            spacing : 5
+            size_hint_y : None
+            height : self.minimum_height
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone (2007–2008)      Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/A.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 3Gs    Prix : 450 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/B.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 4      Prix : 600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/C.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 4S    Prix : 650 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/D.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5     Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/E.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5C      Prix : 700 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/F.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5S     Prix : 750 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/G.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 6    Prix : 800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/H.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 6S      Prix : 800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/I.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 7    Prix : 900 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/J.jfif'
+
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone X     Prix : 1000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/k.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone XL      Prix : 1100 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/L.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 11 Pro Max      Prix : 1200 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/M.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12      Prix : 1500 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/N.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12 Mini    Prix : 1600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/O.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 11 Pro Max   Prix : 1800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/P.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12    Prix : 1000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Q.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Modbook Pro X     Prix : 2000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/R.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Mini Tablette Graphique 5     Prix : 2200 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/S.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPad Air 10,5 pouces   Prix : 2400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/T.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPad Air      Prix : 2400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/U.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "MacBook Pro 14 (2021)   Prix : 4000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/V.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "MacBook Pro      Prix : 4000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/W.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 5    Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/X.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 6     Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Y.jpeg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "300dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 7     Prix : 600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Z.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+
+
+
+
+
+
+
+
+
+
+
+<MainUser>:
+  name : "MainUser"
+  GridLayout :
+    rows : 2
+    GridLayout :
+      size_hint : 1,0.05
+
+      cols : 3
+
+      Button:
+        text : "Back"
+        background_color : 0,1,0,0.7
+        size_hint : 0.15,1
+        on_press : root.manager.current="LoginUser"
+
+      MDCard:
+        size_hint:
+        md_bg_color : [0/255,0/255,0/255,255/255]
+        Label :
+          id : userid
+          text : "WELCOME"
+
+      Button :
+        text : "Refresh"
+        background_color : 1,0,0,0.7
+        size_hint : 0.15,1
+        on_press : app.Refresh()
+
+    GridLayout :
+      cols : 2
+      GridLayout :
+        rows : 2
+        size_hint : 0.3,1
+        MDCard :
+          md_bg_color : [100/255,99/255,101/255,255/255]
+          size_hint : 1,0.05
+          Label :
+            text : "Recommended Products"
+
+
+        ScrollView :
+
+          size : self.size
+          do_scroll_y : True
+          GridLayout :
+            cols : 1
+            spacing : 5
+            size_hint_y : None
+            height : self.minimum_height
+            MDCard :
+              size_hint : 1,None
+              spacing : 10
+              height : "220dp"
+              md_bg_color : [255/255,250/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone (2007–2008)      Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/A.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 1,None
+              spacing : 10
+              height : "220dp"
+              md_bg_color : [255/255,250/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 3Gs    Prix : 450 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/B.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 1,None
+              spacing : 10
+              height : "220dp"
+              md_bg_color : [255/255,250/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 11 Pro Max      Prix : 1200 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/M.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 1,None
+              spacing : 10
+              height : "220dp"
+              md_bg_color : [255/255,250/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "MacBook Pro      Prix : 4000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/W.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+            MDCard :
+              size_hint : 1,None
+              spacing : 10
+              height : "220dp"
+              md_bg_color : [255/255,250/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 7     Prix : 600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Z.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+
+
+
+
+      GridLayout :
+        rows: 2
+        MDCard :
+          md_bg_color : [100/255,99/255,101/255,255/255]
+          size_hint : 1,0.05
+          Label :
+            text : "Products List"
+
+        ScrollView :
+
+          size : self.size
+          do_scroll_y : True
+          GridLayout :
+            cols : 2
+            spacing : 5
+            size_hint_y : None
+            height : self.minimum_height
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone (2007–2008)      Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : aaa
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/A.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : a
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(a.text,"aa","aaa")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : aa
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 3Gs    Prix : 450 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : bbb
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/B.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : b
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(b.text,"bb","bbb")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : bb
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 4      Prix : 600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ccc
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/C.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : c
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(c.text,"cc","ccc")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : cc
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 4S    Prix : 650 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ddd
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/D.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : d
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(d.text,"dd","ddd")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : dd
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5     Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : eee
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/E.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : e
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(e.text,"ee","eee")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ee
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5C      Prix : 700 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : fff
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/F.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : f
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(f.text,"ff","fff")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ff
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 5S     Prix : 750 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ggg
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/G.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : g
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(g.text,"gg","ggg")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : gg
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 6    Prix : 800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : hhh
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/H.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : h
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(h.text,"hh","hhh")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : hh
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 6S      Prix : 800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : iii
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/I.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : i
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(i.text,"ii","iii")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ii
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 7    Prix : 900 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : jjj
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/J.jfif'
+
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : j
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(j.text,"jj","jjj")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : jj
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone X     Prix : 1000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : kkk
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/k.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : k
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(k.text,"kk","kkk")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : kk
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone XL      Prix : 1100 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : lll
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/L.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : l
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(l.text,"ll","lll")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ll
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 11 Pro Max      Prix : 1200 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : mmm
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/M.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : m
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(m.text,"mm","mmm")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : mm
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12      Prix : 1500 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : nnn
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/N.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : n
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(n.text,"nn","nnn")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : nn
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12 Mini    Prix : 1600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ooo
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/O.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : o
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(o.text,"oo","ooo")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : oo
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 11 Pro Max   Prix : 1800 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ppp
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/P.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : p
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(p.text,"pp","ppp")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : pp
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPhone 12    Prix : 1000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : qqq
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Q.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : q
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(q.text,"qq","qqq")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : qq
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Modbook Pro X     Prix : 2000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : rrr
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/R.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : r
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(r.text,"rr","rrr")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : rr
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Mini Tablette Graphique 5     Prix : 2200 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : sss
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/S.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : t
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(t.text,"tt","sss")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : tt
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPad Air 10,5 pouces   Prix : 2400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : ttt
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/T.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : u
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(u.text,"uu","ttt")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : uu
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "iPad Air      Prix : 2400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : uuu
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/U.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : v
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(v.text,"vv","uuu")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : vv
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "MacBook Pro 14 (2021)   Prix : 4000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : vvv
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/V.jfif'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : w
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(w.text,"ww","vvv")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ww
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "MacBook Pro      Prix : 4000 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : www
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/W.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : x
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(x.text,"xx","www")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : xx
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 5    Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : xxx
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/X.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : y
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(y.text,"yy","xxx")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : yy
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 6     Prix : 400 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : yyy
+                text : "Avis : 0/10"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Y.jpeg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : z
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(z.text,"zz","yyy")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : zz
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
+
+            MDCard :
+              size_hint : 0.5,None
+              spacing : 10
+              height : "520dp"
+              md_bg_color : [255/255,255/255,255/255,255/255]
+              orientation : "vertical"
+              MDLabel :
+                text : "Watch Series 7     Prix : 600 Dt"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+              MDLabel :
+                id : zzz
+                text : "Avis : not available"
+                color : 0,0,0,1
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+              Image:
+                source: 'image/Image/Z.jpg'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                adaptive_size: True
+              GridLayout :
+                spacing : 3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                rows : 1
+                size_hint : 0.9,None
+                height : "60dp"
+
+                MDTextField:
+                  id : zz
+                  text : ""
+                  hint_text: "Add Comment"
+                  on_text_validate :
+                    app.x(zz.text,"zzz","ZZZ")
+                    self.text = ""
+                  multiline : False
+              ScrollView :
+                size : self.size
+                do_scroll_y : True
+
+                GridLayout :
+                  id : ZZZ
+                  spacing : 1
+                  pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                  cols : 1
+                  size_hint_y : None
+                  height : self.minimum_height
